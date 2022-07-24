@@ -84,7 +84,7 @@ import toast from './toast/toast';
             }
         }
 
-        if (item.MediaType === 'Audio' || item.Type === 'MusicAlbum' || item.Type === 'MusicArtist' || item.Type === 'MusicGenre') {
+        if (item.MediaType === 'Audio' ||item.MediaType === 'Book' || item.Type === 'MusicAlbum' || item.Type === 'MusicArtist' || item.Type === 'MusicGenre') {
             if (options.instantMix !== false && !itemHelper.isLocalItem(item)) {
                 commands.push({
                     name: globalize.translate('InstantMix'),

@@ -36,7 +36,7 @@ import '../../elements/emby-itemscontainer/emby-itemscontainer';
                     query: {
                         SortBy: 'SortName',
                         SortOrder: 'Ascending',
-                        IncludeItemTypes: 'MusicAlbum',
+                        IncludeItemTypes: 'MusicAlbum,NewAudioBook',
                         Recursive: true,
                         Fields: 'PrimaryImageAspectRatio,SortName,BasicSyncInfo',
                         ImageTypeLimit: 1,

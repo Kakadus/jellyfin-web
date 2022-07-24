@@ -658,7 +658,7 @@ class AppRouter {
                 return url;
             }
 
-            if (item.CollectionType == 'music') {
+            if (item.CollectionType == 'music' || item.CollectionType == 'books') {
                 url = '#/music.html?topParentId=' + item.Id;
 
                 if (options?.section === 'latest') {
@@ -669,7 +669,7 @@ class AppRouter {
             }
         }
 
-        const itemTypes = ['Playlist', 'TvChannel', 'Program', 'BoxSet', 'MusicAlbum', 'MusicGenre', 'Person', 'Recording', 'MusicArtist'];
+        const itemTypes = ['Playlist', 'TvChannel', 'Program', 'BoxSet', 'MusicAlbum', 'MusicGenre', 'Person', 'Recording', 'MusicArtist', 'NewAudioBook'];
 
         if (itemTypes.indexOf(itemType) >= 0) {
             return '#/details?id=' + id + '&serverId=' + serverId;

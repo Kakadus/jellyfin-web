@@ -190,7 +190,7 @@ function renderSection(item, element, type) {
         case 'MusicAlbum':
             loadItems(element, item, type, {
                 MediaTypes: '',
-                IncludeItemTypes: 'MusicAlbum',
+                IncludeItemTypes: 'MusicAlbum,NewAudioBook',
                 PersonTypes: '',
                 ArtistIds: '',
                 AlbumArtistIds: '',

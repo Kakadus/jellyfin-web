@@ -155,6 +155,36 @@ import template from './homeScreenSettings.template.html';
                 name: globalize.translate('Series'),
                 value: 'series'
             });
+        } else if (type === 'books') {
+            list.push({
+                name: globalize.translate('Albums'),
+                value: 'albums',
+                isDefault: true
+            });
+            list.push({
+                name: globalize.translate('Suggestions'),
+                value: 'suggestions'
+            });
+            list.push({
+                name: globalize.translate('HeaderAlbumArtists'),
+                value: 'albumartists'
+            });
+            list.push({
+                name: globalize.translate('Artists'),
+                value: 'artists'
+            });
+            list.push({
+                name: globalize.translate('Playlists'),
+                value: 'playlists'
+            });
+            list.push({
+                name: globalize.translate('Songs'),
+                value: 'songs'
+            });
+            list.push({
+                name: globalize.translate('Genres'),
+                value: 'genres'
+            });
         }
 
         return list;
@@ -248,7 +278,7 @@ import template from './homeScreenSettings.template.html';
             html = `<div class="checkboxListContainer">${html}</div>`;
         }
 
-        if (item.CollectionType === 'movies' || item.CollectionType === 'tvshows' || item.CollectionType === 'music' || item.CollectionType === 'livetv') {
+        if (item.CollectionType === 'movies' || item.CollectionType === 'tvshows' || item.CollectionType === 'music' || item.CollectionType === 'books' || item.CollectionType === 'livetv') {
             const idForLanding = item.CollectionType === 'livetv' ? item.CollectionType : item.Id;
             html += '<div class="selectContainer">';
             html += `<select is="emby-select" class="selectLanding" data-folderid="${idForLanding}" label="${globalize.translate('LabelDefaultScreen')}">`;

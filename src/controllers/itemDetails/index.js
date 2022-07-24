@@ -944,7 +944,7 @@ function renderOverview(page, item) {
 
 function renderGenres(page, item, context = inferContext(item)) {
     const genres = item.GenreItems || [];
-    const type = context === 'music' ? 'MusicGenre' : 'Genre';
+    const type = (context === 'music' || context === 'books') ? 'MusicGenre' : 'Genre';
 
     const html = genres.map(function (p) {
         return '<a style="color:inherit;" class="button-link" is="emby-linkbutton" href="' + appRouter.getRouteUrl({
@@ -1174,7 +1174,7 @@ function renderMoreFromArtist(view, item, apiClient) {
         }
 
         const query = {
-            IncludeItemTypes: 'MusicAlbum',
+            IncludeItemTypes: 'MusicAlbum,NewAudioBook',
             Recursive: true,
             ExcludeItemIds: item.Id,
             SortBy: 'PremiereDate,ProductionYear,SortName',
@@ -1372,7 +1372,7 @@ function renderChildren(page, item) {
         let isList = false;
         const childrenItemsContainer = page.querySelector('.childrenItemsContainer');
 
-        if (item.Type == 'MusicAlbum') {
+        if (item.Type == 'MusicAlbum' || item.Type == 'NewAudioBook') {
             let showArtist = false;
             for (const track of result.Items) {
                 if (!isEqual(track.ArtistItems.map(x => x.Id).sort(), track.AlbumArtists.map(x => x.Id).sort())) {
@@ -1492,13 +1492,13 @@ function renderChildren(page, item) {
         page.querySelector('#childrenTitle').innerHTML = globalize.translate('Episodes');
     } else if (item.Type == 'Series') {
         page.querySelector('#childrenTitle').innerHTML = globalize.translate('HeaderSeasons');
-    } else if (item.Type == 'MusicAlbum') {
+    } else if (item.Type == 'MusicAlbum' || item.Type == 'NewAudioBook') {
         page.querySelector('#childrenTitle').innerHTML = globalize.translate('HeaderTracks');
     } else {
         page.querySelector('#childrenTitle').innerHTML = globalize.translate('Items');
     }
 
-    if (item.Type == 'MusicAlbum' || item.Type == 'Season') {
+    if (item.Type == 'MusicAlbum' || item.Type == 'Season'|| item.Type == 'NewAudioBook') {
         page.querySelector('.childrenSectionHeader').classList.add('hide');
         page.querySelector('#childrenCollapsible').classList.add('verticalSection-extrabottompadding');
     } else {

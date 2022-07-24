@@ -244,9 +244,9 @@ import ServerConnections from '../ServerConnections';
         return function (items) {
             const cardLayout = false;
             let shape;
-            if (itemType === 'Channel' || viewType === 'movies' || viewType === 'books' || viewType === 'tvshows') {
+            if (itemType === 'Channel' || viewType === 'movies' || viewType === 'tvshows') {
                 shape = getPortraitShape();
-            } else if (viewType === 'music' || viewType === 'homevideos') {
+            } else if (viewType === 'music' || viewType === 'homevideos'|| viewType === 'books') {
                 shape = getSquareShape();
             } else {
                 shape = getThumbShape();
