@@ -502,6 +502,10 @@ html {
     color: #fff;
 }
 
+.actionButtons > button:hover {
+    background: #101010 !important;
+}
+
 #dialogToc {
     background-color: #101010;
 }
